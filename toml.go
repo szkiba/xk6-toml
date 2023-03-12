@@ -23,10 +23,8 @@
 package toml
 
 import (
-	"context"
-
-	"go.k6.io/k6/js/modules"
 	"github.com/pelletier/go-toml"
+	"go.k6.io/k6/js/modules"
 )
 
 // Register the extensions on module initialization.
@@ -40,7 +38,7 @@ func New() *Module {
 	return &Module{}
 }
 
-func (m *Module) Parse(ctx context.Context, text string) (interface{}, error) {
+func (m *Module) Parse(text string) (interface{}, error) {
 	obj := map[string]interface{}{}
 
 	err := toml.Unmarshal([]byte(text), &obj)
@@ -51,7 +49,7 @@ func (m *Module) Parse(ctx context.Context, text string) (interface{}, error) {
 	return obj, nil
 }
 
-func (m *Module) Stringify(ctx context.Context, value interface{}) (string, error) {
+func (m *Module) Stringify(value interface{}) (string, error) {
 	b, err := toml.Marshal(value)
 	if err != nil {
 		return "", err
