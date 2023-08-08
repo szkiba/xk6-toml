@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/pelletier/go-toml v1.9.5
-	go.k6.io/k6 v0.39.0
+	go.k6.io/k6 v0.45.1
 )
 
 require (
